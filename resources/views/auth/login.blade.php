@@ -19,7 +19,7 @@
 <div class="container">
     <div class="row mb-3">
         <div class="col-12 d-flex justify-content-center">
-            <img width="200" src="{{ asset('images/logo-dark.png') }}" alt="Logo">
+            <img width="200" src="{{ asset('images/logo.png') }}" alt="Logo">
         </div>
     </div>
     <div class="row justify-content-center">
@@ -84,7 +84,7 @@
 
             <p class="text-center mt-5 lead">
                 Developed By
-                <a href="https://fahimanzam.netlify.app" class="font-weight-bold text-primary">Fahim Anzam Dip</a>
+                <a href="https://verim-solution.com/" class="font-weight-bold text-primary">Verim-solution</a>
             </p>
         </div>
     </div>
