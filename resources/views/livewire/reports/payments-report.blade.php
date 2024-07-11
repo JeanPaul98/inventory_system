@@ -3,11 +3,11 @@
         <div class="col-12">
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <form wire:submit="generateReport">
+                    <form wire:submit.prevent="generateReport">
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Start Date <span class="text-danger">*</span></label>
+                                    <label>Date de début <span class="text-danger">*</span></label>
                                     <input wire:model="start_date" type="date" class="form-control" name="start_date">
                                     @error('start_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>End Date <span class="text-danger">*</span></label>
+                                    <label>Date de fin <span class="text-danger">*</span></label>
                                     <input wire:model="end_date" type="date" class="form-control" name="end_date">
                                     @error('end_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -27,13 +27,13 @@
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Payments</label>
-                                    <select wire:model.live="payments" class="form-control" name="payments">
-                                        <option value="">Select Payments</option>
-                                        <option value="sale">Sales</option>
-                                        <option value="sale_return">Sale Returns</option>
-                                        <option value="purchase">Purchase</option>
-                                        <option value="purchase_return">Purchase Returns</option>
+                                    <label>Transactions</label>
+                                    <select wire:model="payments" class="form-control" name="payments">
+                                        <option value="">Sélectionner les transactions</option>
+                                        <option value="sale">Ventes</option>
+                                        <option value="sale_return">Retours de ventes</option>
+                                        <option value="purchase">Achats</option>
+                                        <option value="purchase_return">Retours d'achats</option>
                                     </select>
                                     @error('payments')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -42,23 +42,23 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Payment Method</label>
+                                    <label>Méthode de paiement</label>
                                     <select wire:model="payment_method" class="form-control" name="payment_method">
-                                        <option value="">Select Payment Method</option>
-                                        <option value="Cash">Cash</option>
-                                        <option value="Credit Card">Credit Card</option>
-                                        <option value="Bank Transfer">Bank Transfer</option>
-                                        <option value="Cheque">Cheque</option>
-                                        <option value="Other">Other</option>
+                                        <option value="">Sélectionner la méthode de paiement</option>
+                                        <option value="Cash">Espèces</option>
+                                        <option value="Credit Card">Carte de crédit</option>
+                                        <option value="Bank Transfer">Virement bancaire</option>
+                                        <option value="Cheque">Chèque</option>
+                                        <option value="Other">Autre</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
                         <div class="form-group mb-0">
                             <button type="submit" class="btn btn-primary">
-                                <span wire:target="generateReport" wire:loading class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                                <i wire:target="generateReport" wire:loading.remove class="bi bi-shuffle"></i>
-                                Filter Report
+                                <span wire:loading wire:target="generateReport" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                <i wire:loading.remove wire:target="generateReport" class="bi bi-shuffle"></i>
+                                Filtrer le rapport
                             </button>
                         </div>
                     </form>
@@ -75,16 +75,16 @@
                         <table class="table table-bordered table-striped text-center mb-0">
                             <div wire:loading.flex class="col-12 position-absolute justify-content-center align-items-center" style="top:0;right:0;left:0;bottom:0;background-color: rgba(255,255,255,0.5);z-index: 99;">
                                 <div class="spinner-border text-primary" role="status">
-                                    <span class="sr-only">Loading...</span>
+                                    <span class="sr-only">Chargement...</span>
                                 </div>
                             </div>
                             <thead>
                             <tr>
                                 <th>Date</th>
-                                <th>Reference</th>
+                                <th>Référence</th>
                                 <th>{{ ucwords(str_replace('_', ' ', $payments)) }}</th>
                                 <th>Total</th>
-                                <th>Payment Method</th>
+                                <th>Méthode de paiement</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -109,7 +109,7 @@
                             @empty
                                 <tr>
                                     <td colspan="8">
-                                        <span class="text-danger">No Data Available!</span>
+                                        <span class="text-danger">Aucune donnée disponible !</span>
                                     </td>
                                 </tr>
                             @endforelse
@@ -128,7 +128,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <div class="alert alert-warning mb-0">
-                            No Data Available!
+                            Aucune donnée disponible !
                         </div>
                     </div>
                 </div>

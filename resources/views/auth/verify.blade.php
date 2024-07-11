@@ -6,14 +6,12 @@
             <div class="col-md-8" style="margin-top: 2%">
                 <div class="card" style="width: 40rem;">
                     <div class="card-body">
-                        <h4 class="card-title">Verify Your Email Address</h4>
+                        <h4 class="card-title">Vérifiez votre adresse e-mail</h4>
                         @if (session('resent'))
-                            <p class="alert alert-success" role="alert">A fresh verification link has been sent to
-                                your email address</p>
+                            <p class="alert alert-success" role="alert">Un nouveau lien de vérification a été envoyé à votre adresse e-mail.</p>
                         @endif
-                        <p class="card-text">Before proceeding, please check your email for a verification link.If you
-                            did not receive the email,</p>
-                        <a href="{{ route('verification.resend') }}">click here to request another</a>.
+                        <p class="card-text">Avant de continuer, veuillez vérifier votre e-mail pour un lien de vérification. Si vous n'avez pas reçu l'e-mail,</p>
+                        <a href="{{ route('verification.resend') }}">cliquez ici pour en demander un autre</a>.
                     </div>
                 </div>
             </div>

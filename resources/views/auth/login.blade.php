@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>Login | {{ config('app.name') }}</title>
+    <title>Connexion | {{ config('app.name') }}</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/favicon.png') }}">
@@ -33,8 +33,8 @@
                 <div class="card-body">
                     <form id="login" method="post" action="{{ url('/login') }}">
                         @csrf
-                        <h1>Login</h1>
-                        <p class="text-muted">Sign In to your account</p>
+                        <h1>Connexion</h1>
+                        <p class="text-muted">Connectez-vous à votre compte</p>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                     <span class="input-group-text">
@@ -56,7 +56,7 @@
                             </div>
                             <input id="password" type="password"
                                    class="form-control @error('password') is-invalid @enderror"
-                                   placeholder="Password" name="password">
+                                   placeholder="Mot de passe" name="password">
                             @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -65,16 +65,16 @@
                             <div class="col-4">
                                 <button id="submit" class="btn btn-primary px-4 d-flex align-items-center"
                                         type="submit">
-                                    Login
+                                    Connexion
                                     <div id="spinner" class="spinner-border text-info" role="status"
                                          style="height: 20px;width: 20px;margin-left: 5px;display: none;">
-                                        <span class="sr-only">Loading...</span>
+                                        <span class="sr-only">Chargement...</span>
                                     </div>
                                 </button>
                             </div>
                             <div class="col-8 text-right">
                                 <a class="btn btn-link px-0" href="{{ route('password.request') }}">
-                                    Forgot password?
+                                    Mot de passe oublié?
                                 </a>
                             </div>
                         </div>
@@ -83,7 +83,7 @@
             </div>
 
             <p class="text-center mt-5 lead">
-                Developed By
+                Développé par
                 <a href="https://verim-solution.com/" class="font-weight-bold text-primary">Verim-solution</a>
             </p>
         </div>

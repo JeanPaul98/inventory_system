@@ -3,11 +3,11 @@
         <div class="col-12">
             <div class="card border-0 shadow-sm">
                 <div class="card-body">
-                    <form wire:submit="generateReport">
+                    <form wire:submit.prevent="generateReport">
                         <div class="form-row">
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>Start Date <span class="text-danger">*</span></label>
+                                    <label>Date de début <span class="text-danger">*</span></label>
                                     <input wire:model="start_date" type="date" class="form-control" name="start_date">
                                     @error('start_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -16,7 +16,7 @@
                             </div>
                             <div class="col-lg-6">
                                 <div class="form-group">
-                                    <label>End Date <span class="text-danger">*</span></label>
+                                    <label>Date de fin <span class="text-danger">*</span></label>
                                     <input wire:model="end_date" type="date" class="form-control" name="end_date">
                                     @error('end_date')
                                     <span class="text-danger mt-1">{{ $message }}</span>
@@ -28,7 +28,7 @@
                             <button type="submit" class="btn btn-primary">
                                 <span wire:target="generateReport" wire:loading class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
                                 <i wire:target="generateReport" wire:loading.remove class="bi bi-shuffle"></i>
-                                Filter Report
+                                Filtrer le rapport
                             </button>
                         </div>
                     </form>
@@ -38,7 +38,7 @@
     </div>
 
     <div class="row">
-        {{-- Sales --}}
+        {{-- Ventes --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -47,12 +47,12 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($sales_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small ">{{ $total_sales }} Sales</div>
+                        <div class="text-uppercase font-weight-bold small ">{{ $total_sales }} Ventes</div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Sale Returns --}}
+        {{-- Retours de vente --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -61,7 +61,7 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($sale_returns_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small">{{ $total_sale_returns }} Sale Returns</div>
+                        <div class="text-uppercase font-weight-bold small">{{ $total_sale_returns }} Retours de vente</div>
                     </div>
                 </div>
             </div>
@@ -80,7 +80,7 @@
                 </div>
             </div>
         </div>
-        {{-- Purchases --}}
+        {{-- Achats --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -89,12 +89,12 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($purchases_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small">{{ $total_purchases }} Purchases</div>
+                        <div class="text-uppercase font-weight-bold small">{{ $total_purchases }} Achats</div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Purchase Returns --}}
+        {{-- Retours d'achat --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -103,12 +103,12 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($purchase_returns_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small">{{ $total_purchase_returns }} Purchase Returns</div>
+                        <div class="text-uppercase font-weight-bold small">{{ $total_purchase_returns }} Retours d'achat</div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Expenses --}}
+        {{-- Dépenses --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -117,12 +117,12 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($expenses_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small">Expenses</div>
+                        <div class="text-uppercase font-weight-bold small">Dépenses</div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Payments Received --}}
+        {{-- Paiements reçus --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -131,12 +131,12 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($payments_received_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small">Payments Received</div>
+                        <div class="text-uppercase font-weight-bold small">Paiements reçus</div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Payments Sent --}}
+        {{-- Paiements effectués --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -145,12 +145,12 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($payments_sent_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small">Payments Sent</div>
+                        <div class="text-uppercase font-weight-bold small">Paiements effectués</div>
                     </div>
                 </div>
             </div>
         </div>
-        {{-- Payments Net --}}
+        {{-- Paiements nets --}}
         <div class="col-12 col-lg-4">
             <div class="card border-0 shadow-sm">
                 <div class="card-body p-3 d-flex align-items-center">
@@ -159,7 +159,7 @@
                     </div>
                     <div>
                         <div class="text-value text-primary">{{ format_currency($payments_net_amount) }}</div>
-                        <div class="text-uppercase font-weight-bold small">Payments Net</div>
+                        <div class="text-uppercase font-weight-bold small">Paiements nets</div>
                     </div>
                 </div>
             </div>

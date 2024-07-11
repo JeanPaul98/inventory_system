@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
 
-    <title>Register | {{ config('app.name') }}</title>
+    <title>Inscription | {{ config('app.name') }}</title>
 
     <!-- Favicon -->
     <link rel="icon" href="{{ asset('images/favicon.png') }}">
@@ -22,8 +22,8 @@
                 <div class="card-body p-4">
                     <form method="post" action="{{ url('/register') }}">
                         @csrf
-                        <h1>Register</h1>
-                        <p class="text-muted">Create your account</p>
+                        <h1>Inscription</h1>
+                        <p class="text-muted">Créez votre compte</p>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text">
@@ -32,7 +32,7 @@
                             </div>
                             <input type="text" class="form-control @error('name') is-invalid @enderror"
                                    name="name" value="{{ old('name') }}"
-                                   placeholder="Full Name">
+                                   placeholder="Nom complet">
                             @error('name')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -56,7 +56,7 @@
                               </span>
                             </div>
                             <input type="password" class="form-control @error('password') is-invalid @enderror"
-                                   name="password" placeholder="Password">
+                                   name="password" placeholder="Mot de passe">
                             @error('password')
                             <div class="invalid-feedback">{{ $message }}</div>
                             @enderror
@@ -68,10 +68,10 @@
                               </span>
                             </div>
                             <input type="password" name="password_confirmation" class="form-control"
-                                   placeholder="Confirm password">
+                                   placeholder="Confirmer le mot de passe">
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block btn-flat mb-3">Register</button>
-                        <a href="{{ route('login') }}" class="text-center">I already have a membership.</a>
+                        <button type="submit" class="btn btn-primary btn-block btn-flat mb-3">Inscription</button>
+                        <a href="{{ route('login') }}" class="text-center">J'ai déjà un compte.</a>
                     </form>
                 </div>
             </div>
